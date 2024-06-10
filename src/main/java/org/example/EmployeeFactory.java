@@ -1,26 +1,31 @@
 package org.example;
 
 public class EmployeeFactory {
-    public Employee getEmployee (EmployeeType type, String dayOfTheWeek) {
+    private int numberOfCooksWorking;
+
+    public Employee getEmployee (Restaurant restaurant, EmployeeType type, String dayOfTheWeek) {
+        this.numberOfCooksWorking = restaurant.numberOfCooks();
+        Cook[] cooks = new Cook[] {restaurant.getCook1(), restaurant.getCook2(), restaurant.getCook3()};
+        int randomCook = (int)(Math.random() * numberOfCooksWorking);
         Employee employee = null;
         switch (type) {
             case COOK:
-                employee = new Cook();
+                employee = cooks[randomCook];
                 break;
             case WAITER:
                 if (!dayOfTheWeek.equals("Friday"))
-                    employee = new Waiter();
+                    employee = restaurant.getWaiter();
                 else
                     employee = new WaiterReplacement();
                 break;
             case MANAGER:
-                employee = new Manager();
+                employee = restaurant.getManager();
                 break;
             case CHEF:
-                employee = Chef.getChef();
+                employee = restaurant.getChef();
                 break;
             case BARTENDER:
-                employee = new Bartender();
+                employee = restaurant.getBartender();
                 break;
         }
         return employee;

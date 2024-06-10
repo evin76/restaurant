@@ -3,12 +3,12 @@ package org.example;
 public class Customer {
     private final EmployeeFactory employeeFactory;
 
-    public Customer (EmployeeFactory employeeFactory) {
-        this.employeeFactory = employeeFactory;
+    public Customer () {
+        this.employeeFactory = new EmployeeFactory();
     }
 
-    public Employee callForAnEmployee (EmployeeType type, String dayOfTheWeek) {
-        Employee employee = employeeFactory.getEmployee(type, dayOfTheWeek);
+    public Employee callForAnEmployee (Restaurant restaurant, EmployeeType type, String dayOfTheWeek) {
+        Employee employee = employeeFactory.getEmployee(restaurant, type, dayOfTheWeek);
         System.out.println("I need a " + getEmployeeTypeString(type));
         if (employee instanceof WaiterReplacement)
             ((WaiterReplacement) employee).work();
@@ -31,6 +31,9 @@ public class Customer {
                 break;
             case CHEF:
                 employeeType = "chef";
+                break;
+            case BARTENDER:
+                employeeType = "bartender";
                 break;
         }
         return employeeType;
