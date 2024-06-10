@@ -38,4 +38,17 @@ public class Customer {
         }
         return employeeType;
     }
+
+    public String order() {
+        String[] menu = getMenu();
+        int randomDish = (int)(Math.random() * menu.length);
+        String dish = menu[randomDish];
+        System.out.println("I want " + dish);
+        return dish;
+    }
+
+    public String[] getMenu() {
+        String[] menu = new String[] {"steak", "spaghetti", "pizza", "soup"};
+        return menu;
+    }
 }
