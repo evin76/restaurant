@@ -18,7 +18,7 @@ public class Chef extends Employee implements EmployeeInterface {
 
     @Override
     public void work() {
-        //System.out.println("Cooking and managing cooks");
+        System.out.println("Cooking and managing cooks");
     }
 
     @Override

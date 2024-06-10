@@ -27,7 +27,7 @@ public class Waiter extends Employee implements EmployeeInterface {
 
     @Override
     public void work() {
-        //System.out.println("Waiting for orders");
+        System.out.println("Waiting for orders");
     }
 
     @Override
