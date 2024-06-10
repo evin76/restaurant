@@ -1,4 +1,4 @@
 package org.example;
 
-public class Employee {
+public abstract class Employee {
 }

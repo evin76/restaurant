@@ -9,6 +9,6 @@ public class Cook extends Employee implements EmployeeInterface{
 
     @Override
     public void takeOrder(String order) {
-
+        System.out.println("Cooking " + order);
     }
 }
